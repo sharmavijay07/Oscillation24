@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blind Coding</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="favicon.png" type="image/png">
+    <script src="https://kit.fontawesome.com/cc8cd74914.js" crossorigin="anonymous"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+        background-color: black;
+        padding: 20px 0;
+      }
+        .container_box {
+        display: flex;/**/
+        justify-content: space-around;/*  */
+      }
+      header .second{
+       
+        width: 60vw;
+      
+      }
+      h1 {
+        text-align: center;
+        font-size: 2em;
+        margin-bottom: 0;
+        /* position: fixed; */
+      }
+     
+      .logo-left {
+        float: left;
+        width: 15vh;
+      }
+      .logo-mid{
+        margin-left: 12vw;
+        
+      }
+      
+      .logo-right {
+        float: right;
+        width: 15vh;
+      }
+     
+     
+        .main{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+          
+        }
+        .main div{
+            margin: 1rem;
+        }
+        .logo{
+            flex-basis: 12%;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            /* background-color: red; */
+            text-align: center;
+            align-items: center;
+        }
+        .container_box ul{
+            display: flex;
+            list-style: none;
+            position: fixed;
+            top: 80px;
+            left:-100%;
+            background: #111;
+            height: 75vh;
+            width: 35vw;
+            text-align: center;
+            display: block;
+            transition: all 0.5s ease;
+            border-radius: 2rem;
+        }
+        .checkbox{
+            display: none;
+        }
+        .container_box ul li{
+            margin: 5vh 0;
+        }
+        .container_box ul li a:hover,
+        .container_box ul li a.active{
+            color: cyan;
+            background: none;
+        }
+        .container_box ul li a{
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1.5rem;
+        
+        }
+        .right{
+            margin-top: 3rem;
+        }
+        #click:checked ~ ul{
+            left: 36vw;
+        }
+        .photo{
+            flex-basis: 30%;
+            /* background-color: rgb(0, 255, 47); */
+            /* padding: 3rem; */
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .register{
+            flex-basis: 30%;
+            padding: 5rem;
+            /* background-color: rgb(0, 64, 255); */
+            text-align: center;
+        }
+        .mid{
+            font-family: Consolas;
+            flex-basis: 40%;
+            width: 75vw;
+            /* background-color: rgb(246, 255, 0); */
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom:0;
+        }
+        .regisBtn{
+            margin-top:1rem;
+            width: 20%;
+            height: 3rem;
+            font-size: 1.1rem;
+            border-radius: 1.5rem;
+            box-shadow: 5px 10px 15px;
+        }
+        .regisBtn:hover{
+            background-color: rgb(54, 54, 161);
+            color: aqua;
+            box-shadow: 5px 10px 15px;
+        }
+        .fa-bars{
+            font-size: 3rem;
+            cursor: pointer;
+            color: #fff;
+        }
+        .logoImg{
+            height: 4rem;
+        }
+        .photoImg{
+            height: 95vh;
+        }
+        .about{
+            /* margin-top: -4rem; */
+            padding: 5rem;
+            /* text-align: start; */
+            font-size: 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+        }
+        .heading{
+            font-size: 1.2rem;
+        }
+        .box{
+            width: 75%;
+            /* text-align: center; */
+        }
+        .mainBox{
+            margin-left: 3rem;
+        }
+        .smallImg{
+            display: none;
+        }
+        .contactus{
+            flex-basis: 20%;
+            padding: 7.5rem;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            /* background-color: rgb(202, 57, 142); */
+        }
+        .contact-left{
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+            gap:20px;
+        }
+        .contact-left-title h2{
+            font-weight: 600;
+            color: rgb(63, 63, 169);
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .contact-left-title hr{
+            border: none;
+            width: 7.5rem;
+            height: 0.2rem;
+            background-color: rgb(105, 14, 190);
+            border-radius: 1rem;
+            margin-bottom: 1rem;
+        }
+        .contact-inputs{
+            width: 25rem;
+            height: 4rem;
+            border: none;
+            border: 0.125rem solid black;
+            outline: none;
+            padding-left: 4rem;
+            font-weight: 500;
+            color: #584747;
+            border-radius: 8rem;
+        }
+        .contact-left textarea{
+            height: 10rem;
+            padding-top: 2rem;
+            border-radius: 2rem;
+        }
+        .contact-inputs:focus{
+            border: 0.125rem solid #4fb0ff;
+        
+        }
+        .contact-inputs::placeholder{
+            color: #1a1313;
+        }
+        .contact-left button{
+            display: flex;
+            align-items: center;
+            padding: 1rem 1rem;
+            font-size: 1rem;
+            color: #fff;
+            gap: 0.5rem;
+            border: none;
+            border-radius: 2rem;
+            background: linear-gradient(270deg,#ff994f,#fa6d86);
+            cursor: pointer;
+        }
+        .contact-left button img{
+            height: 1rem;
+        }
+        .contact-right img{
+            width: 30vw;
+        }
+        .about h2 {
+            border: solid rgb(212, 206, 206);
+            border-width: 5px;
+            padding: 5px;
+            display: flex;
+            width: 200px;
+            width: fit-content;
+            height: 45px;
+            border-top-left-radius: 50px;
+            border-bottom-left-radius: 50px;
+            border-bottom-right-radius: 50px;
+            border-top-right-radius: 50px;
+          
+            margin: 0 auto;
+        }
+        @media (max-width:950px) {
+            .contact-inputs{
+                width: 88vw;
+            }
+            .contact-right{
+                display: none;
+            }
+            .text{
+                font-size: 1.2rem;
+            }
+            .about{
+                width: 90vw;
+            }
+            .box{
+                width: 160%;
+                font-size: 1.2rem;
+            }
+            .heading{
+                font-size: 1.4rem;
+            }
+            .photoImg{
+                display: none;
+            }
+            .right{
+                margin-top: 1rem;
+            }
+            .smallImg{
+                display: block;
+                width: 90vw;
+            }
+            .regisBtn{
+                width: 25vw;
+            }
+            .container_box ul{
+                width: 85vw;
+                position: fixed;
+                left:-100%;
+                
+            }
+            #click:checked ~ ul{
+                top: 25vh;
+                left: 8vw;
+            }
+            .mid{
+                font-size: 1.2rem;
+                flex-basis: 40%;
+                width: 75vw;
+            }
+            .logoImg{
+                width: 12vw;
+                height: 12vw;
+            }
+            .fa-solid{
+               font-size: 2rem;
+               color: #fff;
+            }
+            header {
+        background-color: rgb(0, 0, 0);
+        padding: 1rem 0.8rem;
+        width: 100vw;
+
+      }
+      
+     
+      
+      
+     
+      header .second{
+        background-image: url("osc1.png");
+        background-repeat: no-repeat;
+        background-size:contain ;
+        width: 60vw;
+        /* margin-top: 2rem; */
+        
+      }
+     
+      .logo {
+        width: 15vw;
+       
+        
+      }
+      .logo-mid{
+        display: none;
+      }
+      .logo-left {
+        float: left;
+      }
+     
+    
+      .logo-right {
+        /* width: 20vw; */
+        float: right;
+        width: 15vw;
+        height: 15vw;
+      }
+      .container_box {
+        display: flex;/**/
+        justify-content: space-between;
+        text-align: center;
+        padding: 0;
+        margin: 0;
+        
+      }
+      
+        
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container_box">
+            <span class="third"><img src="2.png" alt="Right Logo" class="logo logo-right"></span>
+          
+          <div class="second">
+            <!-- <h1>Vasantdada Patil Pratishthan's College of
+              <br>Engineering & Visual Arts
+            </h1> -->
+            <img src="osc1.png" alt="Mid Logo" class="logo logo-mid">
+            
+          </div>
+          <input type="checkbox" id="click" class="checkbox">
+
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="hugstobugs">Hugs to Bugs</a></li>
+            <li><a href="blindcoding">Blind Coding</a></li>
+            <li><a href="hackathon">Hackathon</a></li>
+            <li><a href="chess">Chess</a></li>
+            <li><a href="treasurehunt">Treasure Hunt</a></li>
+            <li><a href="projectpresent">Paper Presentation</a></li>
+            
+            
+        </ul>
+          <div class="right">
+            <label for="click" class="menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </label>
+            
+        </div>
+    
+        </div>
+      </header>
+    <div class="main">
+        
+        <!-- <div class="logo">
+            <div class="left">
+                <img src="OscillationLogo.png" class="logoImg">
+            </div>
+
+            
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li><a href="hugstobugs">Hugs to Bugs</a></li>
+                <li><a href="blindcoding">Blind Coding</a></li>
+                <li><a href="hackathon">Hackathon</a></li>
+                <li><a href="chess">Chess</a></li>
+                <li><a href="treasurehunt">Treasure Hunt</a></li>
+                <li><a href="projectpresent">Paper Presentation</a></li>
+                
+                
+            </ul>
+            <div class="mid">
+                Welcome to Oscillation <br>2K24
+            </div>
+            <div class="right">
+                <label for="click" class="menu-btn">
+                    <i class="fa-solid fa-bars"></i>
+                </label>
+                
+            </div>
+        </div> -->
+       
+        <div class="register">
+            <h3>Thur 21, VPPCOE&VA 4th floor</h3>
+            <h3>Blind Coding</h3>
+            <button class="regisBtn">Register</button>
+        </div>
+        <div class="photo"><img src="blindshi.webp" class="photoImg">
+            <img src="blindshi2.webp" class="smallImg">
+        </div>
+        <div class="about">
+            <h2>Rules</h2>   
+
+            <div class="box"><h4 class="heading">Monitor Off:  </h4> Participants must code with their computer monitor turned off, relying solely on their coding skills and memory. This challenges participants to visualize and code without visual aids.
+            </div>
+            
+            <div class="box"><h4 class="heading">Fewest Errors or No Errors Wins:  </h4> Participants will be judged based on the number of errors in their code. The participant with the fewest errors, or ideally no errors, in their code will be declared the winner. Errors include syntax errors, logical errors, and runtime errors.
+            </div>
+
+            <div class="box"><h4 class="heading">1 Hour Time Limit:  </h4> Participants have a maximum of 1 hour to write and debug their code. Once the time is up, all participants must stop coding, and the judging will begin.
+            </div>
+            
+            <div class="box"><h4 class="heading">Internet Off: </h4> Participants are not allowed to access the internet for any assistance during the coding event. This ensures that contestants rely solely on their coding skills and knowledge.
+            </div>  
+
+            <div class="box"><h4 class="heading">Programming Language:  </h4>Participants must write SQL queries to solve the given problems. SQL is the only permissible language for this event, and participants must adhere to the syntax and rules of SQL throughout the competition.
+            </div>  
+              
+            <!-- </div> -->
+        </div>
+        <div class="contactus">
+            <form action="https://api.web3forms.com/submit" method="POST" class="contact-left">
+                <div class="contact-left-title">
+                    <h2>Get in touch</h2>
+                    <hr>
+                </div>
+                <input type="hidden" name="access_key" value="f430b27d-db75-47ab-8af9-11ee97bad5b7">
+                <input type="text" name="name" placeholder="Your Name" class="contact-inputs" required>
+                <input type="email" name="email" placeholder="Your Email" class="contact-inputs" required>
+                <textarea name="message" placeholder="Your Message" class="contact-inputs" required></textarea>
+                <button type="submit">Submit <img src="arrow_icon.png" alt=""></button>
+            </form>
+            <div class="contact-right">
+                <img src="right_img.png" alt="">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
